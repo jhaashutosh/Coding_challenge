@@ -9,12 +9,35 @@
 #include<iostream>
 using namespace std;
 
-struct node{
-    int data;
-    node* next;
+node* head=NULL;
+void insert(int x)
+{
+    node* temp=new node();
+    temp->data=x;
+    temp->next=head;
+    head=temp;
+}
+
+void print()
+{
+    node* temp=new node();
+    temp=head;
+    while(temp!=NULL)
+    {
+        cout<<temp->data<<" "<<endl;
+        temp=temp->next
+    }
 }
 
 int main()
 {
-
+    int n;
+    cout<<"how many numbers you want to insert"<<endl;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cout<<"type in the node number: "<<i+1<<endl;
+        cout<<"now linked list is modified to: "<<endl;
+        print();
+    }
 }
