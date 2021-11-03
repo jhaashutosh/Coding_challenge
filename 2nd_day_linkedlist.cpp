@@ -9,6 +9,11 @@
 #include<iostream>
 using namespace std;
 
+struct node{
+    int data;
+    node* next;
+};
+
 node* head=NULL;
 void insert(int x)
 {
@@ -24,9 +29,10 @@ void print()
     temp=head;
     while(temp!=NULL)
     {
-        cout<<temp->data<<" "<<endl;
-        temp=temp->next
+        cout<<temp->data<<" ";
+        temp=temp->next;
     }
+    cout<<endl;
 }
 
 int main()
@@ -36,7 +42,10 @@ int main()
     cin>>n;
     for(int i=0;i<n;i++)
     {
-        cout<<"type in the node number: "<<i+1<<endl;
+        int val;
+        cout<<"type in the data: "<<endl;
+        cin>>val;
+        insert(val);
         cout<<"now linked list is modified to: "<<endl;
         print();
     }
