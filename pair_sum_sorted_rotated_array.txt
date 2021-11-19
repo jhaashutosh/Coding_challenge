@@ -1,0 +1,55 @@
+//Given a sorted and rotated array, find if there is a pair with a given sum
+
+#include <iostream>
+
+using namespace std;
+
+void check_sum(int arr[],int n,int h,int l,int sum)
+{
+    // while(l>h)
+    for(int i=0;i<n && h!=l;i++)
+    {
+        if(arr[h]+arr[l]==sum) 
+        {
+            cout<<arr[h]<<"  "<<arr[l]<<endl;
+            h--;
+        }
+        else if(arr[h]+arr[l]>sum)
+        {
+            if(h!=0)
+            h--;
+            else
+            h=n-1;
+        }
+        else if(arr[h]+arr[l]<sum)
+        {
+            if(l!=n-1)
+            l++;
+            else
+            l=0;
+        }
+    }
+    
+}
+
+int main()
+{
+    int arr[]={3,4,5,6,1,2};
+    int n=6;
+    int h,l;
+    for(int i=0;i<6;i++)
+    {
+        if(arr[i]>arr[i+1])
+        {
+            h=i;
+            l=i+1;
+            break;
+        }
+    
+    }
+    int sum;
+    cin>>sum;
+    check_sum(arr,n,h,l,sum);
+
+    return 0;
+}
